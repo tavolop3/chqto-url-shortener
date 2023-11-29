@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Chqto</title>
@@ -12,6 +11,10 @@
   </head>
 
   <body>
+    <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -19,3 +22,15 @@
 
   <%= any_login_here if defined?(AnyLogin) %>
 </html>
+
+<style>
+  ul.hmenu {
+    list-style: none;	
+    margin: 0 0 2em;
+    padding: 0;
+  }
+
+  ul.hmenu li {
+    display: inline;  
+  }
+</style>

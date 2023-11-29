@@ -1,18 +1,4 @@
-<div class="navbar">
-  <a href="#">Inicio</a>
-  <a href="#">Mis Enlaces</a>
-  <a href="#">Configuración</a>
-  <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "logout" %>
-</div>
-
-<!-- Contenido principal -->
 <div class="content">
-  <!-- Contenido específico para usuarios autenticados -->
   <h1>Bienvenido de nuevo, <%= current_user.email %></h1>
-  <p>Aquí puedes gestionar tus enlaces acortados y configurar tu cuenta.</p>
+  <p>Acá gestionar tus enlaces acortados y configurar tu cuenta.</p>
 </div>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2023 Mi Acortador de Enlaces</p>
-</footer>
