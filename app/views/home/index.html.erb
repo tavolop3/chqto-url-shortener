@@ -1,5 +1,13 @@
-<h1>Chqto</h1>
-<%= link_to "Iniciar sesión", new_user_session_path  %>
-<%= link_to "Registrarse", new_user_registration_path  %>
-<%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-<p>Acá va a estar la pagina principal</p>
+<h1>Bienvenido a chqto</h1>
+
+<%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-primary" %>
+<%= link_to "Registrarse", new_user_registration_path, class: "btn btn-success" %>
+
+<div>
+  <p>Este es un servicio para acortar enlaces y compartirlos fácilmente.</p>
+  <p>Inicia sesión o regístrate para comenzar a usarlo.</p>
+</div>
+
+<footer>
+  <p>&copy; 2023 Mi Acortador de Enlaces</p>
+</footer>
