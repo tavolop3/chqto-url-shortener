@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+#
+# User.create([
+#               { email: 'juancho@gmail.com', password: 'tavolop', password_confirmation: 'tavolop',
+#                 remember_created_at: nil },
+#               { email: 'pepe@gmail.com', password: 'tavolop', password_confirmation: 'tavolop',
+#                 remember_created_at: nil },
+#               { email: 'lolo@gmail.com', password: 'tavolop', password_confirmation: 'tavolop',
+#                 remember_created_at: nil },
+#               { email: 'mati@gmail.com', password: 'tavolop', password_confirmation: 'tavolop',
+#                 remember_created_at: nil },
+#               { email: 'tao@gmail.com', password: 'tavolop', password_confirmation: 'tavolop',
+#                 remember_created_at: nil }
+#             ])

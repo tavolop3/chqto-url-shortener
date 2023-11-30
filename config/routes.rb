@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'authenticated_endpoint/index'
   get 'home/index'
   devise_for :users
   root to: 'home#index'
