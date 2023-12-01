@@ -9,9 +9,10 @@
 #   end
 #
 User.create([
-              { email: 'juancho@gmail.com', password: 'tavolop', password_confirmation: 'tavolop' },
-              { email: 'pepe@gmail.com', password: 'tavolop', password_confirmation: 'tavolop' },
-              { email: 'lolo@gmail.com', password: 'tavolop', password_confirmation: 'tavolop' },
-              { email: 'mati@gmail.com', password: 'tavolop', password_confirmation: 'tavolop' },
-              { email: 'tavo@gmail.com', password: 'tavolop', password_confirmation: 'tavolop' }
+              { email: 'juancho@gmail.com', username: 'juancho', password: 'tavolop',
+                password_confirmation: 'tavolop' },
+              { email: 'pepe@gmail.com', username: 'pepito', password: 'tavolop' },
+              { email: 'lolo@gmail.com', username: 'lolo', password: 'tavolop' },
+              { email: 'mati@gmail.com', username: 'mati', password: 'tavolop' },
+              { email: 'tavo@gmail.com', username: 'tavo', password: 'tavolop' }
             ])
