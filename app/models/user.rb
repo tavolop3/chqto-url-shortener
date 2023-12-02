@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :links, dependent: :destroy
+  has_many :accesses, through: :links
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
   # Include default devise modules. Others available are:

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :links
   get 'authenticated_endpoint/index'
   get 'home/index'
   devise_for :users
