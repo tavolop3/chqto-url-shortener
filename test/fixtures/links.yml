@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  slug: MyString
+  user: one
+  name: MyString
+  type: 
+  expiration_date: 2023-12-02 17:36:58
+  password: MyString
+  accesses_count: 1
+
+two:
+  url: MyString
+  slug: MyString
+  user: two
+  name: MyString
+  type: 
+  expiration_date: 2023-12-02 17:36:58
+  password: MyString
+  accesses_count: 1
