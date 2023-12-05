@@ -16,8 +16,8 @@
       <%= render 'devise/menu/login_items' %>
     </ul>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice" style="color: green"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
   </body>
 
   <%= any_login_here if defined?(AnyLogin) %>

@@ -1,0 +1,2 @@
+module SlugHelper
+end

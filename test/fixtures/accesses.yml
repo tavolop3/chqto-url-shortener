@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: one
+  timestamp: 2023-12-05 00:25:40
+  ip_address: MyString
+
+two:
+  link: two
+  timestamp: 2023-12-05 00:25:40
+  ip_address: MyString
