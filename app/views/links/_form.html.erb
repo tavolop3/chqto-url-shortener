@@ -8,10 +8,10 @@
   <div class="form-inputs">
     <%= f.input :url %>
     <%= f.input :name %>
-    <%= f.input :type, collection: [['Normal','RegularLink'], ['Temporal','TemporalLink'], ['Privado','PrivateLink'], ['Efímero','EphemeralLink']] %>
+    <%= f.input :type, collection: [['Normal','RegularLink'], ['Temporal','TemporalLink'], ['Privado','PrivateLink'], ['Efímero','EphemeralLink']], selected: 'Normal' %>
 
-    <%= f.input :expiration_date, style: hidden %>
-    <%= f.hidden_field :password %>
+    <%= f.input :expiration_date %>
+    <%= f.input :password %>
 
   <div class="form-actions">
     <%= f.button :submit %>

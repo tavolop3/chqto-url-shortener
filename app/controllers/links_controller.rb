@@ -25,7 +25,6 @@ class LinksController < ApplicationController
     @link.user = current_user
     respond_to do |format|
       if @link.save
-        render turbo_stream: turbo_stream.replace(@link, partial: 'links/form', locals: { link: @link })
         format.html { redirect_to link_url(@link), notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
