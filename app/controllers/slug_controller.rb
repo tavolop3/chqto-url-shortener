@@ -22,11 +22,17 @@ class SlugController < ApplicationController
   end
 
   def redirect_to_url
+    register_access
     redirect_to @link.url, allow_other_host: true
   end
 
   def check_types
+    forbidden if @link.unusable?
     not_found if @link.expired? # Temporal/Ephemeral checks
     render 'require_password' if @link.private?
+  end
+
+  def register_access
+    Access.create!(link: @link, ip_address: request.remote_ip)
   end
 end

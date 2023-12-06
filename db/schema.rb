@@ -13,7 +13,6 @@
 ActiveRecord::Schema[7.1].define(version: 2023_12_05_032540) do
   create_table "accesses", force: :cascade do |t|
     t.integer "link_id", null: false
-    t.datetime "timestamp"
     t.string "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
