@@ -17,9 +17,7 @@
       <%= link_to "Links", links_path %>
     </ul>
     <%= yield %>
-  <% if notice || alert %>
     <p class="notice"> <%= notice || alert %></p>
-  <% end %>
   </body>
 
   <%= any_login_here if defined?(AnyLogin) %>

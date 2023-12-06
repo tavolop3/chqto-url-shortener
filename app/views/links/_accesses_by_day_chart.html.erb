@@ -1,0 +1,5 @@
+<% if @accesses_by_day.any? %>
+  <%= line_chart @accesses_by_day, xtitle: 'Fecha', ytitle: 'Cantidad de Accesos', curve: false %>
+<% else %>
+  <p>No hay accesos registrados por día.</p>
+<% end %>

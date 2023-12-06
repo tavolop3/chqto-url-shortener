@@ -57,7 +57,10 @@ class LinksController < ApplicationController
     end
   end
 
-  def stats; end
+  def stats
+    @accesses = @link.accesses.order(created_at: :desc)
+    @accesses_by_day = @link.accesses.group('DATE(created_at)').count
+  end
 
   private
 

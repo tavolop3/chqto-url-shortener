@@ -30,6 +30,7 @@ module Chqto
 
     app_environment_variables = File.join(Rails.root, 'config', 'app_environment_variables.rb')
     load(app_environment_variables) if File.exist?(app_environment_variables)
+
     config.active_record.encryption.primary_key = ENV['ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY']
     config.active_record.encryption.deterministic_key = ENV['ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY']
     config.active_record.encryption.key_derivation_salt = ENV['ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT']

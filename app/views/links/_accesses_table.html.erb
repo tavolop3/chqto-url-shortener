@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Fecha y Hora</th>
+      <th>Dirección IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accesses.each do |access| %>
+      <tr>
+        <td><%= access.created_at %></td>
+        <td><%= access.ip_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

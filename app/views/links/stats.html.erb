@@ -1,6 +1,9 @@
 <h2>Estadísticas</h2>
 
-<p>
-<strong>Cantidad de accesos:</strong>
-<%= @link.accesses_count %>
-</p>
+<strong>Cantidad total de accesos: <%= @link.accesses_count %></strong>
+
+<h3>Cantidad de accesos por día</h3>
+<%= render 'accesses_by_day_chart', accesses_by_day: @accesses_by_day %>
+
+<h3>Detalle de accesos</h3>
+<%= render 'accesses_table', accesses: @accesses %>
