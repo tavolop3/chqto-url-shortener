@@ -9,10 +9,52 @@
 #   end
 #
 User.create([
-              { email: 'juancho@gmail.com', username: 'juancho', password: 'tavolop',
-                password_confirmation: 'tavolop' },
-              { email: 'pepe@gmail.com', username: 'pepito', password: 'tavolop' },
-              { email: 'lolo@gmail.com', username: 'lolo', password: 'tavolop' },
-              { email: 'mati@gmail.com', username: 'mati', password: 'tavolop' },
-              { email: 'tavo@gmail.com', username: 'tavo', password: 'tavolop' }
+              { email: 'juancho@gmail.com', username: 'juancho', password: 'contra' },
+              { email: 'pepe@gmail.com', username: 'pepito', password: 'contra' },
+              { email: 'tavo@gmail.com', username: 'tavo', password: 'contra' }
             ])
+
+Link.create([
+              { url: 'https://www.google.com', name: 'Google', user_id: 1 },
+              { url: 'https://www.youtube.com', name: 'Youtube', user_id: 1 },
+              { url: 'https://www.facebook.com', name: 'Facebook', user_id: 2 }, # Asignado a un segundo usuario
+              { url: 'https://www.twitter.com', name: 'Twitter', user_id: 2 }, # Asignado a un segundo usuario
+              { url: 'https://www.instagram.com', name: 'Instagram', user_id: 3 } # Asignado a un tercer usuario
+            ])
+
+Access.create([
+                # Accesos para el primer link (Google)
+                { link_id: 1, ip_address: '181.92.178.72', created_at: DateTime.now.utc },
+                { link_id: 1, ip_address: '236.27.43.153', created_at: DateTime.new(2023, 12, 5, 12, 30, 0).utc },
+                { link_id: 1, ip_address: '123.45.67.89', created_at: DateTime.new(2023, 12, 5, 15, 45, 0).utc },
+                { link_id: 1, ip_address: '181.92.178.72', created_at: DateTime.now.utc - 10.days },
+                { link_id: 1, ip_address: '181.92.178.72', created_at: DateTime.now.utc - 10.days },
+                { link_id: 1, ip_address: '236.27.43.153', created_at: DateTime.now.utc - 9.days },
+                { link_id: 1, ip_address: '123.45.67.89', created_at: DateTime.now.utc - 8.days },
+                { link_id: 1, ip_address: '192.168.0.1', created_at: DateTime.now.utc - 7.days },
+                { link_id: 1, ip_address: '55.77.99.110', created_at: DateTime.now.utc - 6.days },
+                { link_id: 1, ip_address: '55.77.99.110', created_at: DateTime.now.utc - 6.days },
+                { link_id: 1, ip_address: '203.45.67.91', created_at: DateTime.now.utc - 5.days },
+                { link_id: 1, ip_address: '77.99.111.120', created_at: DateTime.now.utc - 4.days },
+                { link_id: 1, ip_address: '86.44.128.200', created_at: DateTime.now.utc - 3.days },
+                { link_id: 1, ip_address: '97.209.157.188', created_at: DateTime.now.utc - 2.days },
+                { link_id: 1, ip_address: '128.45.67.90', created_at: DateTime.now.utc - 1.day },
+
+                # Accesos para el segundo link (Youtube)
+                { link_id: 2, ip_address: '97.209.157.188', created_at: DateTime.new(2023, 12, 3, 12, 30, 0).utc },
+                { link_id: 2, ip_address: '86.44.128.200', created_at: DateTime.new(2023, 11, 30, 7, 4, 0).utc },
+                { link_id: 2, ip_address: '192.168.1.1', created_at: DateTime.new(2023, 11, 30, 8, 15, 0).utc },
+
+                # Accesos para el tercer link (Facebook)
+                { link_id: 3, ip_address: '128.45.67.90', created_at: DateTime.new(2023, 12, 5, 9, 0, 0).utc },
+                { link_id: 3, ip_address: '77.88.99.100', created_at: DateTime.new(2023, 12, 5, 14, 30, 0).utc },
+                { link_id: 3, ip_address: '55.66.77.88', created_at: DateTime.new(2023, 12, 5, 18, 45, 0).utc },
+
+                # Accesos para el cuarto link (Twitter)
+                { link_id: 4, ip_address: '192.168.2.1', created_at: DateTime.new(2023, 12, 4, 10, 0, 0).utc },
+                { link_id: 4, ip_address: '203.45.67.91', created_at: DateTime.new(2023, 12, 4, 14, 15, 0).utc },
+
+                # Accesos para el quinto link (Instagram)
+                { link_id: 5, ip_address: '55.77.99.110', created_at: DateTime.new(2023, 12, 4, 8, 30, 0).utc },
+                { link_id: 5, ip_address: '77.99.111.120', created_at: DateTime.new(2023, 12, 4, 16, 45, 0).utc }
+              ])

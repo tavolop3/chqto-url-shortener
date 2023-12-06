@@ -21,7 +21,6 @@ class LinksController < ApplicationController
   # POST /links or /links.json
   def create
     @link = Link.new(link_params)
-    @link.slug = SecureRandom.hex(4)
     @link.user = current_user
     respond_to do |format|
       if @link.save

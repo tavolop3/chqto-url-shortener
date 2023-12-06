@@ -5,6 +5,11 @@ class Link < ApplicationRecord
   validates :slug, presence: true, uniqueness: true
   encrypts :password
 
+  after_initialize do
+    self.slug ||= SecureRandom.hex(4)
+    self.type ||= 'RegularLink'
+  end
+
   def check_password(password)
     password == self.password
   end
