@@ -1,6 +1,31 @@
 class SlugController < ApplicationController
+  before_action :load_link
+  before_action :check_types, only: [:show]
+
   def show
-    @link = Link.find_by(slug: params[:slug])
-    redirect_to "#{@link.url}", allow_other_host: true
+    redirect_to_url
+  end
+
+  def authenticate
+    if @link.check_password(params[:password])
+      redirect_to_url
+    else
+      flash.alert = 'Contraseña incorrecta'
+      redirect_to authenticate_slug_path(@link.slug)
+    end
+  end
+
+  private
+
+  def load_link
+    @link = Link.find_by(slug: params[:slug]) or not_found
+  end
+
+  def redirect_to_url
+    redirect_to @link.url, allow_other_host: true
+  end
+
+  def check_types
+    render 'require_password' if @link.private?
   end
 end

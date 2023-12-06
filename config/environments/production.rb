@@ -96,6 +96,6 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
 
-AnyLogin.setup do |config|
-  config.enabled = false
-end
+# AnyLogin.setup do |config|
+#   config.enabled = false
+# end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+  has_many :links
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,7 +22,5 @@ class User < ApplicationRecord
     elsif conditions.key?(:username) || conditions.key?(:email)
       where(conditions.to_h).first
     end
-    # conditions[:email].downcase! if conditions[:email]
-    # where(conditions.to_h).first
   end
 end

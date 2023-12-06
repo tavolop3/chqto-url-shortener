@@ -14,10 +14,12 @@
     <ul class="hmenu">
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
+      <%= link_to "Links", links_path %>
     </ul>
     <%= yield %>
-    <p class="notice" style="color: green"><%= notice %></p>
-    <p class="alert" style="color: red"><%= alert %></p>
+  <% if notice || alert %>
+    <p class="notice"> <%= notice || alert %></p>
+  <% end %>
   </body>
 
   <%= any_login_here if defined?(AnyLogin) %>

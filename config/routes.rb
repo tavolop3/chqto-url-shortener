@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'authenticated_endpoint/index'
   get 'home/index'
   get 'l/:slug', to: 'slug#show', as: :slug
+  post '/l/:slug/authenticate', to: 'slug#authenticate', as: :authenticate_slug
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

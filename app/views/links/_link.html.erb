@@ -1,5 +1,10 @@
 <div id="<%= dom_id link %>">
   <p>
+  <strong>Url acortada:</strong>
+  <%= 'chq.to:3000/l/' + link.slug %>
+  </p>
+
+  <p>
     <strong>Url:</strong>
     <%= link.url %>
   </p>
@@ -7,11 +12,6 @@
   <p>
     <strong>Slug:</strong>
     <%= link.slug %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= link.user_id %>
   </p>
 
   <p>
@@ -23,20 +23,29 @@
     <strong>Type:</strong>
     <%= link.type %>
   </p>
-
+  
+  <% if link.type == 'TemporalLink' %>
   <p>
     <strong>Expiration date:</strong>
     <%= link.expiration_date %>
   </p>
+  <% end %>
 
+  <% if link.type == 'PrivateLink' %> 
   <p>
     <strong>Password:</strong>
     <%= link.password %>
   </p>
+  <% end %>
 
+  <% if link.type != 'EphemeralLink' %>
   <p>
-    <strong>Accesses count:</strong>
-    <%= link.accesses_count %>
+    <strong>Accesos:</strong>
+    <% if link.accesses_count %>
+      <%= link.accesses_count %>
+    <% else %>
+      0
+    <% end %>
   </p>
-
+  <% end %>
 </div>

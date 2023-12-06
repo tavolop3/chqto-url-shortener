@@ -4,8 +4,7 @@ class LinksController < ApplicationController
 
   # GET /links or /links.json
   def index
-    user = current_user
-    @links = Link.where(user:)
+    @links = current_user.links
   end
 
   # GET /links/1 or /links/1.json
@@ -60,12 +59,10 @@ class LinksController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_link
-    @link = Link.find(params[:id])
+    @link = current_user.links.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def link_params
     params.require(:link).permit(:url, :name, :type, :expiration_date, :password)
   end

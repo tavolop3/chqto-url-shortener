@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: %i[login password]
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def not_found
+    raise ActionController::RoutingError, 'Not Found'
+  end
 end
