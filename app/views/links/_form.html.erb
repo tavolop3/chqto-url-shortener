@@ -10,33 +10,33 @@
     <%= f.input :name %>
     <%= f.input :type, collection: [['Normal','RegularLink'], ['Temporal','TemporalLink'], ['Privado','PrivateLink'], ['Efímero','EphemeralLink']], selected: 'Normal' %>
     <%= f.input :expiration_date %>
-    <%= f.input :password %>
+    <%= f.input :password, as: :password %>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
 
-<%= turbo_frame_tag 'new_item_form' %>
-<script>
-document.addEventListener('turbo:load', function () {
-  console.log(document)
-  const typeSelect = document.getElementById('link_type');
-  const passwordField = document.getElementById('link_password');
-  const dateField = document.getElementById('link_expiration_date');
-  typeSelect.addEventListener('change', function () {
-    if (typeSelect.value === 'PrivateLink') {
-      passwordField.style.display = 'block';
-      passwordField.type = 'password';
-      dateField.style.display = 'none';
-    } else if (typeSelect.value === 'TemporalLink') {
-      passwordField.style.display = 'none';
-      dateField.style.display = 'block';
-      dateField.type = 'show';
-    } else {
-      passwordField.style.display = 'none';
-      dateField.style.display = 'none';
-    }
-    });
-});
-</script>
+<%# <%= turbo_frame_tag 'new_item_form' %>
+<%# <script> %>
+<%# document.addEventListener('turbo:load', function () { %>
+<%#   console.log(document) %>
+<%#   const typeSelect = document.getElementById('link_type'); %>
+<%#   const passwordField = document.getElementById('link_password'); %>
+<%#   const dateField = document.getElementById('link_expiration_date'); %>
+<%#   typeSelect.addEventListener('change', function () { %>
+<%#     if (typeSelect.value === 'PrivateLink') { %>
+<%#       passwordField.style.display = 'block'; %>
+<%#       passwordField.type = 'password'; %>
+<%#       dateField.style.display = 'none'; %>
+<%#     } else if (typeSelect.value === 'TemporalLink') { %>
+<%#       passwordField.style.display = 'none'; %>
+<%#       dateField.style.display = 'block'; %>
+<%#       dateField.type = 'show'; %>
+<%#     } else { %>
+<%#       passwordField.style.display = 'none'; %>
+<%#       dateField.style.display = 'none'; %>
+<%#     } %>
+<%#     }); %>
+<%# }); %>
+<%# </script> %>
