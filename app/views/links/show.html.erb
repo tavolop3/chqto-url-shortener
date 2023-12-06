@@ -2,8 +2,8 @@
 
 <div>
   <%= link_to "Editar", edit_link_path(@link) %> |
-  <%= link_to "Volver", links_path %>
-  <%= link_to "Reporte", stats_link_path %>
+  <%= link_to "Volver", links_path %> |
+  <%= link_to "Reporte", stats_path(@link) %>
 
   <%= button_to "Eliminar", @link, method: :delete, data: {
                     turbo_method: :delete,

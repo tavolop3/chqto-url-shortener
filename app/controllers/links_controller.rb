@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_link, only: %i[show edit update destroy]
+  before_action :set_link, only: %i[show edit update destroy stats]
 
   # GET /links or /links.json
   def index
