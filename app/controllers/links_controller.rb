@@ -57,6 +57,8 @@ class LinksController < ApplicationController
     end
   end
 
+  def stats; end
+
   private
 
   def set_link
