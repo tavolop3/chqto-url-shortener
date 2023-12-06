@@ -12,7 +12,13 @@ class Link < ApplicationRecord
     type == 'PrivateLink'
   end
 
-  def temporal?
-    type == 'TemporalLink'
+  def expired?
+    if type == 'TemporalLink'
+      DateTime.now.utc.after? expiration_date
+    elsif type == 'EphemeralLink'
+      accesses_count == 1
+    else
+      false
+    end
   end
 end

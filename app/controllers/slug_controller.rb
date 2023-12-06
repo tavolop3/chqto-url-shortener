@@ -26,6 +26,7 @@ class SlugController < ApplicationController
   end
 
   def check_types
+    not_found if @link.expired? # Temporal/Ephemeral checks
     render 'require_password' if @link.private?
   end
 end
