@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :links
   get '/links/:id/stats', to: 'links#stats', as: :stats
+  get '/links/:id/stats/list', to: 'links#list', as: :list_links
   get 'authenticated_endpoint/index'
   get 'home/index'
   get 'l/:slug', to: 'slug#show', as: :slug

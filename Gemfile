@@ -76,3 +76,5 @@ gem 'rails-i18n', '~> 7.0'
 
 gem 'chartkick'
 gem 'groupdate'
+
+gem "tailwindcss-rails", "~> 2.0"
