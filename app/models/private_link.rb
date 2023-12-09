@@ -1,5 +1,5 @@
 class PrivateLink < Link
-  def self.model_name
-    Link.model_name
+  def check_password(password)
+    password == self.password
   end
 end

@@ -1,5 +1,5 @@
 class EphemeralLink < Link
-  def self.model_name
-    Link.model_name
+  def unusable?
+    accesses_count >= 1
   end
 end

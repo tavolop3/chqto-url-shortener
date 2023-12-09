@@ -1,18 +1,9 @@
 class SlugController < ApplicationController
-  before_action :load_link
-  before_action :check_types, only: [:show]
+  before_action :load_link, :load_handler
 
   def show
+    @handler.handle
     redirect_to_url
-  end
-
-  def authenticate
-    if @link.check_password(params[:password])
-      redirect_to_url
-    else
-      flash.alert = 'Contraseña incorrecta'
-      redirect_to authenticate_slug_path(@link.slug)
-    end
   end
 
   private
@@ -21,15 +12,21 @@ class SlugController < ApplicationController
     @link = Link.find_by(slug: params[:slug]) or not_found
   end
 
+  def load_handler
+    handler_class = Object.const_get("#{@link.type}Handler")
+    @handler = handler_class.new(@link)
+  end
+
+  def authenticate
+    redirect_to_url if @handler.authenticate
+
+    flash.alert = 'Contraseña incorrecta'
+    redirect_to slug_path(@link.slug)
+  end
+
   def redirect_to_url
     register_access
     redirect_to @link.url, allow_other_host: true
-  end
-
-  def check_types
-    forbidden if @link.unusable?
-    not_found if @link.expired? # Temporal/Ephemeral checks
-    render 'require_password' if @link.private?
   end
 
   def register_access

@@ -16,41 +16,25 @@
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>Nombre:</strong>
     <%= link.name %>
   </p>
 
   <p>
-    <strong>Type:</strong>
+    <strong>Tipo:</strong>
     <%= link.type %>
   </p>
   
-  <% if link.type == 'TemporalLink' %>
   <p>
-    <strong>Expiration date:</strong>
-    <%= link.expiration_date %>
-  </p>
-  <% end %>
-
-  <% if link.type == 'PrivateLink' %> 
-  <p>
-    <strong>Password:</strong>
-    <%= link.password %>
-  </p>
-  <% end %>
-
-  <p>
-    <% if link.type != 'EphemeralLink' %>
-      <strong>Accesos:</strong>
-      <% if link.accesses_count %>
-        <%= link.accesses_count %>
-      <% else %>
-        0
-      <% end %>
+    <strong>Accesos:</strong>
+    <% if link.accesses_count %>
+      <%= link.accesses_count %>
+    <% else %>
+      0
     <% end %>
+  </p>
 
-    <% if link.unusable? %>
-       El link fue accedido (deshabilitado)
-    <% end %>
+  <p>
+    <%= render partial: "links/#{link.type.underscore}", locals: { link: link } %>
   </p>
 </div>

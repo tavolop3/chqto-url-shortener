@@ -8,25 +8,16 @@ class Link < ApplicationRecord
   after_initialize do
     self.slug ||= SecureRandom.hex(4)
     self.type ||= 'RegularLink'
+    self.accesses_count ||= 0
   end
 
-  def check_password(password)
-    password == self.password
-  end
-
-  def private?
-    type == 'PrivateLink'
-  end
-
-  def unusable?
-    return false unless type == 'EphemeralLink'
-
-    accesses_count == 1
-  end
-
-  def expired?
-    return false unless type == 'TemporalLink'
-
-    DateTime.now.utc.after? expiration_date
+  def self.inherited(child)
+    child.instance_eval do
+      alias :original_model_name :model_name
+      def model_name
+        Link.model_name
+      end
+    end
+    super
   end
 end

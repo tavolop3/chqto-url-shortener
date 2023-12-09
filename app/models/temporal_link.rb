@@ -1,5 +1,5 @@
 class TemporalLink < Link
-  def self.model_name
-    Link.model_name
+  def expired?
+    DateTime.now.utc.after? expiration_date
   end
 end
