@@ -1,11 +1,12 @@
 <h1>Links</h1>
-
 <div id="links">
+  <hr>
   <% @links.each do |link| %>
     <%= render link %>
     <p>
       <%= link_to "Más información", link %>
     </p>
+    <hr>
   <% end %>
 </div>
 

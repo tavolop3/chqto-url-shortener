@@ -7,13 +7,17 @@
 
 <div class="flex justify-end mb-1">
 <%= form_with url: list_links_path, method: :get, data: { controller: "search-form", search_form_target: "form", turbo_frame: "links" } do |form| %>
+    <hr>
+    <%= form.label :busqueda, "Busqueda de accesos:" %>
   <%= form.text_field :ip_address,
     placeholder: "Buscar por IP",
     class: "border border-blue-500 rounded p-2",
     autocomplete: "off",
     data: { action: "input->search-form#search" }
-  %>
-  <%= form.date_field :start_date, placeholder: "Fecha de inicio", class: "border border-blue-500 rounded p-2" %>
+    %> <br>
+  <%= form.label :start_date, "Fecha de inicio" %>
+  <%= form.date_field :start_date, placeholder: "Fecha de inicio", class: "border border-blue-500 rounded p-2" %><br>
+  <%= form.label :end_date, "Fecha de fin" %>   
   <%= form.date_field :end_date, placeholder: "Fecha de fin", class: "border border-blue-500 rounded p-2" %>
   <%= form.submit "Buscar", class: "bg-blue-500 p-2 rounded" %>
 <% end %>
