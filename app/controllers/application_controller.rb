@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     render(file: File.join(Rails.root, 'public/404.html'), status: 404, layout: false)
   end
 
+  def not_found_temporal
+    render(file: File.join(Rails.root, 'public/404_temporal.html'), status: 404, layout: false)
+  end
+
   def forbidden
     render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false)
   end
