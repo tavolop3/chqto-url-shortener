@@ -1,0 +1,65 @@
+@media (prefers-color-scheme: dark) {
+:root {
+    body {
+      font-family:'SF Pro Display', 'Roboto', Arial, sans-serif;
+      background-color: #222;
+      color: #fff;
+    }
+
+    nav {
+      background-color: #333;
+    }
+
+    nav a {
+      color: #fff;
+    }
+
+    a {
+      color: #FFD700;
+    }
+
+    a:visited {
+      color: #FFD700;
+    }
+
+    .container {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .notice {
+      background-color: #555;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #333;
+    }
+
+    table {
+        background-color: #333;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    table, th, td {
+      border-: 5px solid Black;
+    }
+
+    th, td {
+        border-bottom: 1px solid #555;
+    }
+
+    th {
+        background-color: #555;
+        color: #fff;
+    }
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #444;
+    }
+  }
+}
