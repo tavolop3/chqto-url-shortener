@@ -75,3 +75,5 @@ gem 'rails-i18n', '~> 7.0'
 
 gem 'chartkick'
 gem 'groupdate'
+
+gem 'will_paginate', '~> 4.0'

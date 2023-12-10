@@ -79,7 +79,7 @@ class LinksController < ApplicationController
   end
 
   def set_accesses
-    @accesses = @link.accesses.order(created_at: :desc)
+    @accesses = @link.accesses.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     @accesses_by_day = @link.accesses.group('DATE(created_at)').count
   end
 end

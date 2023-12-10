@@ -1,5 +1,6 @@
 <div class="content">
   <h1>Bienvenido de nuevo, <%= current_user.username %></h1>
   <p>Acá podés gestionar tus enlaces acortados y configurar tu cuenta.</p>
-  <% link_to 'Ver mis links', links_path %>
+  <%= link_to 'Ver mis links', links_path %> |
+  <%= link_to 'Crear un nuevo link', new_link_path %>
 </div>
