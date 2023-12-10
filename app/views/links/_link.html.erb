@@ -2,7 +2,7 @@
   <p>
     <strong>Url acortada:</strong>
     <% url = '127.0.0.1:3000/l/'+link.slug %>
-    <a href='<%= '/l/'+link.slug %>'><%= url %></a>
+    <%= link_to url, '/l/'+link.slug, data: {turbo: false} %>
   </p>
 
   <p>
