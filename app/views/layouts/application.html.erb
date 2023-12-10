@@ -5,10 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
+    <style>
+    /* Estilo para desactivar la línea debajo de los enlaces */
+    a {
+      text-decoration: none;
+    }
+  </style>
   </head>
 
   <body>
@@ -19,8 +25,6 @@
     <%= yield %>
     <p class="notice"> <%= notice || alert %></p>
   </body>
-
-  <%= any_login_here if defined?(AnyLogin) %>
 </html>
 
 <style>

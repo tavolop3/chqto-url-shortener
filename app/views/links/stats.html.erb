@@ -1,28 +1,27 @@
 <h2>Estadísticas</h2>
 
-<strong>Cantidad total de accesos: <%= @link.accesses_count %></strong>
+<p>Cantidad total de accesos: <%= @link.accesses_count %></p>
 
-<h3>Cantidad de accesos por día</h3>
+<p>Cantidad de accesos por día<p>
 <%= render 'accesses_by_day_chart', accesses_by_day: @accesses_by_day %>
 
-<div class="flex justify-end mb-1">
+<div>
 <%= form_with url: list_links_path, method: :get, data: { controller: "search-form", search_form_target: "form", turbo_frame: "links" } do |form| %>
-    <hr>
-    <%= form.label :busqueda, "Busqueda de accesos:" %>
+  <hr>
+  <%= form.label :busqueda, "Busqueda de accesos" %> <br>
   <%= form.text_field :ip_address,
     placeholder: "Buscar por IP",
-    class: "border border-blue-500 rounded p-2",
     autocomplete: "off",
     data: { action: "input->search-form#search" }
     %> <br>
   <%= form.label :start_date, "Fecha de inicio" %>
-  <%= form.date_field :start_date, placeholder: "Fecha de inicio", class: "border border-blue-500 rounded p-2" %><br>
+  <%= form.date_field :start_date, placeholder: "Fecha de inicio" %><br>
   <%= form.label :end_date, "Fecha de fin" %>   
-  <%= form.date_field :end_date, placeholder: "Fecha de fin", class: "border border-blue-500 rounded p-2" %>
-  <%= form.submit "Buscar", class: "bg-blue-500 p-2 rounded" %>
+  <%= form.date_field :end_date, placeholder: "Fecha de fin" %>
+  <%= form.submit "Buscar" %>
 <% end %>
 </div>
-<%= turbo_frame_tag "links", class: "shadow rounded border-b border-gray-200" do %>
+<%= turbo_frame_tag "links" do %>
   <% if @matches %>
     <strong>Cantidad de coincidencias: <%= @matches %></strong>
   <% end %>  

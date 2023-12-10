@@ -82,13 +82,4 @@ class LinksController < ApplicationController
     @accesses = @link.accesses.order(created_at: :desc)
     @accesses_by_day = @link.accesses.group('DATE(created_at)').count
   end
-
-  def setup_sti_model
-    model = nil
-    p params
-    model = params[:link].delete(:type).constantize.to_s if !params[:link].blank? && !params[:link][:type].blank?
-    @link = Link.new(params[:link])
-    @link = Link.new(link_params)
-    @link.type = model
-  end
 end
