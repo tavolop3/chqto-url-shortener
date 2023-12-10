@@ -28,12 +28,15 @@ document.addEventListener('turbo:load', function () {
   typeSelect.addEventListener('change', function () {
     if (typeSelect.value === 'PrivateLink') {
       passwordBlock.style.display = 'block';
+      link_password.required = true;
       dateBlock.style.display = 'none';
     } else if (typeSelect.value === 'TemporalLink') {
       passwordBlock.style.display = 'none';
+      link_password.required = false;
       dateBlock.style.display = 'block';
     } else {
       passwordBlock.style.display = 'none';
+      link_password.required = false;
       dateBlock.style.display = 'none';
     }
     });
