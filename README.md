@@ -39,3 +39,10 @@ Hay tres usuarios ya cargados, cada uno con links y accesos para probar, se pued
 | juancho@gmail.com | juancho       | contra              |
 | pepe@gmail.com    | pepito        | contra              |
 | tavo@gmail.com    | tavo          | contra              |
+
+# Decisiones de diseño
+* Encriptación: Se aprovechó la misma encriptación que provee Rails con las credenciales en credentials.yml.enc y su archivo para desencriptar master.key. Estos archivos se dejaron para simplificar el proceso de creación y carga de los datos, pero si se desarrolla en la aplicación hay que generar nuevas credenciales.
+
+* Modelado de links: Un usuario puede tener múltiples links, cada link pertenece a solo un usuario y cada link tiene múltiples accesos. Los distintos tipos de links fueron representados en la tabla utilizando STI (Single Table Inheritance) para separar responsabilidades, se eligió esto debido a que se considera que no hay suficientes diferencias entre cada link como para hacer una tabla para cada uno y representar mejor el problema.
+
+* Librería para slugs: No se utlilizó ninguna librería para encargarse de los slugs para cada link, debido a que se consideró que la funcionalidad que se necesita es reducida comparado a lo que puede proveer una librería, además no se encontró una librería que se adecue bien al problema.
