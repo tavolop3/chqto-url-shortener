@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Chqto</title>
@@ -5,8 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
 
@@ -15,15 +17,84 @@
       <%= render 'devise/menu/registration_items' %> |
       <%= render 'devise/menu/login_items' %> 
     </nav>
-    <%= yield %>
-    <% if notice || alert %>
-      <p class="notice"> <%= notice || alert %></p>
-    <% end %>
+    <div class="container">
+      <%= yield %>
+      <% if notice || alert %>
+        <p class="notice"> <%= notice || alert %></p>
+      <% end %>
+    </div>
   </body>
 </html>
 
 <style>
-  a {
+  body {
+    font-family:'SF Pro Display', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  nav {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    color: #ecf0f1;
+    margin: 0 10px;
     text-decoration: none;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  nav a:visited {
+    color: #ecf0f1;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #0000FF;
+  }
+
+  a:visited {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #0000FF;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  .notice {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
   }
 </style>
