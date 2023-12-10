@@ -41,7 +41,7 @@ Hay tres usuarios ya cargados, cada uno con links y accesos para probar, se pued
 | tavo@gmail.com    | tavo          | contra              |
 
 # Decisiones de diseño
-* Encriptación: Se aprovechó la misma encriptación que provee Rails con las credenciales en credentials.yml.enc y su archivo para desencriptar master.key. Estos archivos se dejaron para simplificar el proceso de creación y carga de los datos, pero si se desarrolla en la aplicación hay que generar nuevas credenciales.
+* Encriptación: Se aprovechó la misma encriptación que provee Rails con las credenciales en credentials.yml.enc y su archivo para desencriptar master.key. Estos archivos se dejaron para simplificar el proceso de creación y carga de los datos, pero si se desarrolla en la aplicación hay que generar nuevas credenciales. Si se quier hacer esto, debe eliminar las credenciales ya incluidas y descomentar en .gitignore el archivo master.key
 
 * Modelado de links: Un usuario puede tener múltiples links, cada link pertenece a solo un usuario y cada link tiene múltiples accesos. Los distintos tipos de links fueron representados en la tabla utilizando STI (Single Table Inheritance) para separar responsabilidades, se eligió esto debido a que se considera que no hay suficientes diferencias entre cada link como para hacer una tabla para cada uno y representar mejor el problema.
 
