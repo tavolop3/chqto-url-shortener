@@ -1,7 +1,6 @@
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-
 User.create!([
                { email: 'juancho@gmail.com', username: 'juancho', password: 'contra' },
                { email: 'pepe@gmail.com', username: 'pepito', password: 'contra' },
@@ -53,9 +52,17 @@ Access.create!([
                  { link_id: 5, ip_address: '77.99.111.120', created_at: DateTime.new(2023, 12, 4, 16, 45, 0).utc }
                ])
 
+require 'faker'
 fecha_inicio = DateTime.new(2023, 12, 1, 0, 0, 0).utc
 fecha_fin = DateTime.new(2023, 12, 31, 23, 59, 59).utc
 1000.times do
-  ip = Array.new(4) { rand(256) }.join('.')
-  Access.create!(link: Link.all.sample, ip_address: ip, created_at: rand(fecha_inicio..fecha_fin))
+  Access.create!(link: Link.all.sample, ip_address: Faker::Internet.ip_v4_address,
+                 created_at: rand(fecha_inicio..fecha_fin))
+end
+
+25.times do
+  link = Link.create!(url: Faker::Internet.url, name: Faker::Commerce.brand, user: User.all.sample)
+  rand(50).times do
+    Access.create!(link:, ip_address: Faker::Internet.ip_v4_address)
+  end
 end

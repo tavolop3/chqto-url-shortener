@@ -77,3 +77,5 @@ gem 'chartkick'
 gem 'groupdate'
 
 gem 'will_paginate', '~> 4.0'
+
+gem 'faker'
