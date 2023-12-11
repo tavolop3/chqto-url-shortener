@@ -11,7 +11,7 @@ class SlugController < ApplicationController
       redirect_to_url
     else
       flash.alert = 'Contraseña incorrecta'
-      redirect_to authenticate_slug_path(@link.slug)
+      render 'require_password'
     end
   end
 

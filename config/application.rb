@@ -25,8 +25,5 @@ module Chqto
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.default_locale = :es
-
-    config.hosts << 'chq.to'
-    config.hosts << '127.0.0.1'
   end
 end
