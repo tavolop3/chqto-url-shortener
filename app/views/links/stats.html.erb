@@ -29,9 +29,3 @@
   <%= will_paginate @accesses, previous_label: 'Anterior', next_label: 'Siguiente', previous_disabled_class: 'disabled', next_disabled_class: @accesses.next_page ? nil : 'disabled' %>
 <% end %>
 
-<style>
-  .disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-</style>

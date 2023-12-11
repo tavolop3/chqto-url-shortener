@@ -1,5 +1,5 @@
 <h1>Links</h1>
-<div id="links">
+<div>
   <hr>
   <% @links.each do |link| %>
     <%= render link %>
@@ -8,6 +8,8 @@
     </p>
     <hr>
   <% end %>
+  <%= will_paginate @links, previous_label: 'Anterior', next_label: 'Siguiente', previous_disabled_class: 'disabled', next_disabled_class: @links.next_page ? nil : 'disabled' %>
+
 </div>
 
 <%= link_to "Crear link", new_link_path %>

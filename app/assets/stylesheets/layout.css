@@ -700,3 +700,12 @@ sub {
   margin-left: auto; /* Centra el contenedor horizontalmente */
   margin-right: auto; /* Centra el contenedor horizontalmente */
 }
+
+.disabled {
+ opacity: 0.5;
+ pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+}
