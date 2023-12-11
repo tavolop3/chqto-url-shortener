@@ -3,6 +3,7 @@ class Link < ApplicationRecord
   has_many :accesses, dependent: :destroy
   validates :url, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
   validates :slug, presence: true, uniqueness: true
+  validates :name, length: { maximum: 50 }
   encrypts :password
 
   after_initialize do
