@@ -3,4 +3,10 @@
   <p>Acá podés gestionar tus enlaces acortados y configurar tu cuenta.</p>
   <%= link_to 'Ver mis links', links_path %> |
   <%= link_to 'Crear un nuevo link', new_link_path %>
+  
+  <h2>Estadísticas de Links</h2>
+  <p>Total de Accesos a Todos los Links:<%= @total_accesses_count %></p>
+
+  <p>Links más accedidos:</h1>
+  <%= pie_chart @pie_chart_data, legend: "bottom" %>
 </div>
