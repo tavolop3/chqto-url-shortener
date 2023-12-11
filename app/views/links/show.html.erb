@@ -2,10 +2,12 @@
 <%= render @link %>
 
 <%= link_to "Editar", edit_link_path(@link) %> |
-<%= link_to "Volver", links_path %> |
-<%= link_to "Reporte", stats_path(@link) %>
+<%= link_to "Reporte de accesos", stats_path(@link) %> |
 
-<%= button_to "Eliminar", @link, method: :delete, data: {
+<%= link_to "Eliminar", @link, method: :delete, data: {
                   turbo_method: :delete,
-                  turbo_confirm: "Estás seguro?"
-                } %>
+                  turbo_confirm: "¿Estás seguro? Esto va a eliminar toda información relacionada al link y no se puede recuperar."
+} %> <br>
+
+<%= link_to "Volver", links_path %>
+

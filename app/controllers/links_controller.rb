@@ -5,7 +5,7 @@ class LinksController < ApplicationController
 
   # GET /links or /links.json
   def index
-    @links = current_user.links.paginate(page: params[:page], per_page: 5)
+    @links = current_user.links.paginate(page: params[:page], per_page: 4)
   end
 
   # GET /links/1 or /links/1.json
@@ -62,7 +62,8 @@ class LinksController < ApplicationController
   def list
     @accesses = @accesses.where('ip_address LIKE ?', "%#{params[:ip_address]}%") if params[:ip_address].present?
     if params[:start_date].present? && params[:end_date].present?
-      @accesses = @accesses.where(created_at: params[:start_date]..params[:end_date])
+      end_date = params[:end_date].to_datetime.end_of_day
+      @accesses = @accesses.where(created_at: params[:start_date]..end_date)
     end
     @matches = @accesses.count
     render('stats')

@@ -17,8 +17,9 @@
   <%= form.label :start_date, "Fecha de inicio" %>
   <%= form.date_field :start_date, placeholder: "Fecha de inicio" %><br>
   <%= form.label :end_date, "Fecha de fin" %>   
-  <%= form.date_field :end_date, placeholder: "Fecha de fin" %>
+  <%= form.date_field :end_date, placeholder: "Fecha de fin" %> <br>
   <%= form.submit "Buscar" %>
+  <%= button_tag "Limpiar", type: "button", onclick: "resetForm()" %>
 <% end %>
 </div>
 <%= turbo_frame_tag "links" do %>
@@ -29,3 +30,13 @@
   <%= will_paginate @accesses, previous_label: 'Anterior', next_label: 'Siguiente', previous_disabled_class: 'disabled', next_disabled_class: @accesses.next_page ? nil : 'disabled' %>
 <% end %>
 
+<%= link_to "Volver al link", link_path(@link) %>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  function resetForm() {
+    // Resetear los valores de start_date y end_date a ""
+    $("#start_date").val("");
+    $("#end_date").val("");
+  }
+</script>

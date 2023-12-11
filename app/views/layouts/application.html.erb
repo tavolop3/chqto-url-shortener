@@ -13,8 +13,12 @@
 
   <body>
     <header>
+      <div class="logo-container">
+       <a href="/"> <%= image_tag('logo.png', alt: 'Chqto Logo', class: 'logo') %>
+       </a>
+      </div>
       <nav>
-        <%= render 'devise/menu/registration_items' %> |
+        <%= render 'devise/menu/registration_items' %>
         <%= render 'devise/menu/login_items' %> 
       </nav>
     </header>
@@ -26,3 +30,20 @@
     </div>
   </body>
 </html>
+
+<footer>
+  <p>&copy; 2023 Chqto. Ningún derecho reservado.</p>
+</footer>
+
+<style>
+.logo-container {
+  float: left; /* Coloca el logo a la izquierda */
+  margin-right: 20px; /* Agrega un margen derecho para separar del menú */
+}
+
+.logo {
+  width: 45px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px; /* Add margin as needed */
+}
+</style>
