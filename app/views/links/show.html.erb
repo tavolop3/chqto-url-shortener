@@ -1,12 +1,11 @@
+<h1> Link </h1>
 <%= render @link %>
 
-<div>
-  <%= link_to "Editar", edit_link_path(@link) %> |
-  <%= link_to "Volver", links_path %> |
-  <%= link_to "Reporte", stats_path(@link) %>
+<%= link_to "Editar", edit_link_path(@link) %> |
+<%= link_to "Volver", links_path %> |
+<%= link_to "Reporte", stats_path(@link) %>
 
-  <%= button_to "Eliminar", @link, method: :delete, data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Estás seguro?"
-                  } %>
-</div>
+<%= button_to "Eliminar", @link, method: :delete, data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Estás seguro?"
+                } %>

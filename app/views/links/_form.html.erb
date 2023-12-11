@@ -6,18 +6,26 @@
   <% end %>
   <div class="form-inputs">
     <%= f.input :url, as: :url %>
-    <%= f.input :name %>
-    <%= f.input :type, collection: [['Normal','RegularLink'], ['Temporal','TemporalLink'], ['Privado','PrivateLink'], ['Efímero','EphemeralLink']], selected: 'Normal' %> 
+    <%= f.input :name, label: 'Nombre' %>
+    <%= f.input :type, collection: [['Normal','RegularLink'], ['Temporal','TemporalLink'], ['Privado','PrivateLink'], ['Efímero','EphemeralLink']], selected: 'Normal', label: 'Tipo' %> 
     <div id="expiration_date_block" style="display: none">
-      <%= f.input :expiration_date %>
+      <%= f.input :expiration_date, label: 'Fecha de expiración' %>
     </div>
     <div id="password_block" style="display: none">
-      <%= f.input :password, as: :password %>
+      <%= f.input :password, as: :password, label: 'Contraseña' %>
     </div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<p> * Campos obligatorios</p>
+<p> Tipos: </p>
+<ul>
+  <li>Normal: Link de acceso regular.</li>
+  <li>Temporal: Tiene una fecha de expiración donde pierde validez.</li>
+  <li>Privado: Tiene una contraseña que protege el acceso.</li>
+  <li>Efímero: Link que expira luego del primer acceso.</li>
+</ul>
 
 <%= turbo_frame_tag 'new_item_form' %>
 <script>
