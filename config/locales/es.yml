@@ -1,0 +1,7 @@
+es:
+  activerecord:
+    models:
+      regular_link: 'Normal'
+      temporal_link: 'Temporal'
+      private_link: 'Privado'
+      ephemeral_link: 'Efímero'
