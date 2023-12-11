@@ -1,4 +1,35 @@
 <p>
-  <strong>Password:</strong>
-  <%= link.password %>
+  <strong>Contraseña:</strong>
+  <span id="passwordContainer"><%= link.password %></span>
+  <%= link_to "Ver contraseña", "#", id: "togglePassword", onclick: "togglePasswordVisibility(); return false;" %>
 </p>
+
+<script>
+  function togglePasswordVisibility() {
+    var passwordContainer = document.getElementById("passwordContainer");
+    var togglePassword = document.getElementById("togglePassword");
+
+    if (passwordContainer.style.display === "inline") {
+      passwordContainer.style.display = "none";
+      togglePassword.textContent = "Ver contraseña";
+    } else {
+      passwordContainer.style.display = "inline";
+      togglePassword.textContent = "Ocultar";
+    }
+  }
+</script>
+
+<style>
+  #passwordContainer {
+    display: none;
+  }
+
+  #passwordContainer.visible {
+    display: inline;
+  }
+
+  #togglePassword {
+    cursor: pointer;
+    margin-left: 5px;
+  }
+</style>
